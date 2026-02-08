@@ -1,16 +1,36 @@
-# React + Vite
+# Kanary-Lite 🐤
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Um gerenciador de tarefas minimalista e eficiente desenvolvido em React. O **Kanary-Lite** permite organizar o foco do dia, acompanhar tarefas concluídas e manter um histórico, tudo salvo automaticamente no seu navegador.
 
-Currently, two official plugins are available:
+## ✨ Funcionalidades
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+* **Adicionar Tarefas:** Interface simples para inclusão rápida de novos itens.
+* **Gestão de Estado:** Marcar tarefas como concluídas ou pendentes.
+* **Filtros de Visualização:**
+    * 📋 **Minhas Tarefas:** Foco apenas no que está pendente.
+    * ✅ **Concluídas:** Visualização das tarefas já realizadas.
+    * 🌍 **Histórico:** Visão geral de todas as tarefas.
+* **Persistência de Dados:** As tarefas são salvas no `LocalStorage` do navegador, ou seja, você não perde seus dados ao atualizar a página.
+* **Exclusão:** Possibilidade de remover tarefas definitivamente.
 
-## React Compiler
+## 🛠️ Tecnologias Utilizadas
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* **[React](https://reactjs.org/)** - Biblioteca JavaScript para construção da interface.
+* **Hooks (useState, useEffect)** - Para gerenciamento de estado e ciclo de vida.
+* **CSS** - Estilização responsiva e limpa.
+* **LocalStorage API** - Para armazenamento local dos dados.
 
-## Expanding the ESLint configuration
+## 🚀 Como rodar o projeto localmente
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Siga os passos abaixo para baixar e executar o projeto na sua máquina:
+
+### Pré-requisitos
+
+Você precisa ter o [Node.js](https://nodejs.org/) instalado em seu computador.
+
+### Passo a passo
+
+1. **Clone o repositório**
+   Abra o terminal e rode o comando:
+   ```bash
+   git clone [https://github.com/lobomalone2/Kanary-Lite.git](https://github.com/lobomalone2/Kanary-Lite.git)
