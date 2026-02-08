@@ -1,0 +1,167 @@
+:root {
+  --cor-fundo: #0a0c10;
+  --cor-lateral: #12151c;
+  --cor-primaria: #00d2ff; /* Ciano vibrante */
+  --cor-secundaria: #3a4750;
+  --texto-principal: #ffffff;
+  --texto-suave: #94a3b8;
+  --fundo-cartao: #1a1f26;
+  --borda-suave: rgba(255, 255, 255, 0.05);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+  background-color: var(--cor-fundo);
+  color: var(--texto-principal);
+}
+
+.painel-container {
+  display: flex;
+  height: 100vh;
+}
+
+/* Barra Lateral */
+.barra-lateral {
+  width: 280px;
+  background-color: var(--cor-lateral);
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--borda-suave);
+}
+
+.logotipo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.logotipo span {
+  color: var(--cor-primaria);
+}
+
+.menu-navegacao {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.item-menu {
+  background: transparent;
+  border: none;
+  color: var(--texto-suave);
+  padding: 15px;
+  text-align: left;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+.item-menu.ativo, .item-menu:hover {
+  background: rgba(0, 210, 255, 0.1);
+  color: var(--cor-primaria);
+}
+
+/* Conteúdo Principal */
+.conteudo-principal {
+  flex: 1;
+  padding: 60px;
+  overflow-y: auto;
+}
+
+.cabecalho h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.destaque {
+  color: var(--cor-primaria);
+  font-weight: bold;
+}
+
+/* Área de Inserção */
+.grupo-entrada {
+  display: flex;
+  gap: 15px;
+  margin: 40px 0;
+}
+
+.grupo-entrada input {
+  flex: 1;
+  background: var(--fundo-cartao);
+  border: 1px solid var(--borda-suave);
+  padding: 18px;
+  border-radius: 15px;
+  color: white;
+  font-size: 1rem;
+  outline: none;
+}
+
+.botao-adicionar {
+  background: var(--cor-primaria);
+  color: #000;
+  border: none;
+  width: 60px;
+  border-radius: 15px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.botao-adicionar:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 210, 255, 0.3);
+}
+
+/* Lista de Tarefas */
+.lista-tarefas {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.cartao-tarefa {
+  background: var(--fundo-cartao);
+  padding: 20px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid transparent;
+  transition: 0.3s;
+}
+
+.cartao-tarefa:hover {
+  background: #232a35;
+}
+
+.cartao-tarefa.urgente {
+  border-bottom-color: #ff4757;
+}
+
+.info-tarefa h3 {
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+}
+
+.info-tarefa span {
+  color: var(--texto-suave);
+  font-size: 0.85rem;
+}
+
+.caixa-selecao {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  accent-color: var(--cor-primaria);
+  cursor: pointer;
+}
