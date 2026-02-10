@@ -2,7 +2,9 @@ import { useState, useEffect } from 'react'
 import './App.css'
 
 function App() {
+  
   const [texto, setTexto] = useState("")
+  const [dataInput, setDataInput] = useState(new Date().toJSON().slice(0, 10));
 
   // Carrega do Local Storage ao iniciar ou começa com array vazio
 
@@ -19,12 +21,14 @@ function App() {
   }, [lista])
 
   function adicionarTarefa() {
-    if (texto.trim() === "") return
+    if (texto.trim() === "") return 
     const novaTarefa = {
       id: Date.now(),
       texto: texto,
+      data:dataInput,
       concluida: false
     }
+
 
     setLista([...lista, novaTarefa])
     setTexto("")
@@ -45,6 +49,23 @@ function App() {
     setLista(listaAtualizada)
 
   }
+
+  function formatarDataExibicao(dataTarefa) {
+  // Se a tarefa não tiver data (tarefas antigas), evita erro de crash
+  if (!dataTarefa) return "Sem data";
+
+  const hoje = new Date().toJSON().slice(0, 10); // Adicionado () em toJSON
+
+  const amanhaObj = new Date();
+  amanhaObj.setDate(amanhaObj.getDate() + 1); // Adicionado () em getDate
+  const amanha = amanhaObj.toJSON().slice(0, 10);
+
+  if (dataTarefa === hoje) return "Hoje";
+  if (dataTarefa === amanha) return "Amanhã";
+
+  const [ano, mes, dia] = dataTarefa.split("-");
+  return `${dia}/${mes}`;
+}
 
 
   // Lógica de Filtro para as Abas
@@ -94,6 +115,7 @@ function App() {
           {abaAtiva === "pendentes" && (
             <div className="grupo-entrada">
               <input value={texto} onChange={(e) => setTexto(e.target.value)} type="text" placeholder="Nova tarefa..." />
+              <input value={dataInput} onChange={(e) => setDataInput(e.target.value)} type="date" />
               <button onClick={adicionarTarefa} className="botao-adicionar">+</button>
             </div>
           )}
@@ -105,6 +127,12 @@ function App() {
                   <h3 style={{ textDecoration: t.concluida ? 'line-through' : 'none' }}>
                     {t.texto}
                   </h3>
+
+                  <span className="tag-data">
+                  {/* Aqui você passa a data da tarefa para a função traduzir */}
+                  📅 {formatarDataExibicao(t.data || dataInput)}
+                  </span>
+
                 </div>
                 <input 
                   type="checkbox" 
@@ -113,7 +141,8 @@ function App() {
                   className="caixa-selecao" 
                 />
 
-                <button 
+                <button
+
 
         onClick={() => removerTarefa(t.id)} 
         className="botao-remover"
@@ -121,6 +150,8 @@ function App() {
       >
         🗑️
       </button>
+
+
               </li>
             ))} 
           </ul>
